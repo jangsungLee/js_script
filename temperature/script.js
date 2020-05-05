@@ -103,6 +103,18 @@ TweenMax.to(dragger, 1.4, {
  ease:Expo.easeInOut
 })
 
+// Use the function below to change the temperature value..
+function Update(value) {
+    dragger._gsTransform.y = -value * step;
+    liquidId = Math.abs(Math.round(dragger._gsTransform.y / step));
+
+    label.textContent = liquidId + '°';
+    TweenMax.to(liquid, 1.3, {
+        y: dragger._gsTransform.y * 1.12,
+        ease: Elastic.easeOut.config(1, 0.4)
+    })
+
+}
 
 //ScrubGSAPTimeline(tl);
 
